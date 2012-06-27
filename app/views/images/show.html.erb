@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+
+
+<a href="<%=@image.image_file.url %>" alt="view fullsize image"><%= image_tag @image.image_file.url(:medium) %></a>
+
+
+
 <p>
   <b>Name:</b>
   <%= @image.name %>
@@ -9,6 +15,8 @@
   <b>Description:</b>
   <%= @image.description %>
 </p>
+
+
 
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
