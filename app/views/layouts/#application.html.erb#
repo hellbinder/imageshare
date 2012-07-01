@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Imageshare</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../Styles/Mickey.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <title>Mickey's Pitifull Page</title>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#test").click(function () {
+                $(this).animate(
+            { "font-size": "60px",
+                "padding-left": "200px"
+            }, 2000).animate(
+            { "color": "Blue" },
+            2000);
+            });
+        });
+    </script>
+    <header id="banner">
+        <div id="logo">
+            <h1>WTA</h1>
+        </div>
+        <ul id="navigation" class="">
+            <li class="nav"><a href="http://www.yahoo.com">Yahoo</a></li>
+            <li class="nav"><a href="http://www.google.com">Google</a></li>
+            <li class="nav"><a href="http://www.engadget.com">Engadget</a></li>
+            <li class="nav"><a href="http://www.Gizmodo.com">Gizmodo</a></li>
+        </ul>
+    <div class="clear"></div>
+    </header>
+    <div id="pageBase">
+        <div id="page">
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigudflksggjbdfklgjsdflkgjnfdslkgjnsdflkgjndfslkbujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <p>slsdjgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgbsldigubujbdgzg</p>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <aside>
+        Just links to different parts of the page.
+        </aside>
+    </div>
+    <div class="clear">
+    </div>
+    <footer id="footer">
+    This is a footer which should contain links to common links pertaining to the page. Not very important links. Just some like help, emailme, basic info and what not.<br />
+    Might not need to be fixed so it just shows up at the end of the page.
+    </footer>
+<%= yie</div>
+    <div class="clear">
+    </div>
+    <footer id="footer">
+    This is a footer which should contain links to common links pertaining to the page. Not very important links. Just some like help, emailme, basic info and what not.<br />
+    Might not need to be fixed so it just shows up at the end of the page.
+    </footer>
+ld %>
+
+</body>
+</html>
