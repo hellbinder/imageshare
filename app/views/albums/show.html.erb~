@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<b>Listing images for album <%= @album.title %></b>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @album.description %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @images.each do |image| %>
+  <tr>
+    <td><%= image_tag image.image_file.url(:thumb) %></td>
+    <td><%= image.name %></td>
+    <td><%= image.description %></td>
+    <td><%= link_to 'Show', image %></td>
+    <td><%= link_to 'Edit', edit_image_path(image) %></td>
+    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' }%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add Image', new_image_path %>
+</br>
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

@@ -1,0 +1,187 @@
+﻿/*RESET THE WHOLE DARN THING*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align:center;
+}
+
+a{text-decoration:none;}
+
+/*Main page layout*/
+h1
+{
+    font-size:2em;
+    text-transform:uppercase;
+    padding:5px;
+    color:#000;
+}
+h2
+{
+    font-size:1.5em;
+    text-transform:uppercase;
+    padding:5px;
+    color:#CCDDEE
+}
+div#pageBase
+{
+    display:table;
+    width: 960px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 10px 15px 8px #151515;
+    border-radius:0 0 5px 5px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    margin-bottom:90px;
+    padding:20px;
+}
+
+div#page
+{
+    display:table-cell;
+    padding:20px 20px 10px 20px;
+    letter-spacing:1px;
+    line-height:125%;
+    border-bottom:none;
+    width: 450px;
+    word-break:break-all;
+    z-index:-1;
+}
+
+aside
+{
+    width:150px;
+    display:table-cell;
+    border-left:1px dashed #ccc;
+    padding:10px;
+}
+
+#footer
+{
+    z-index: 1;
+    height: 150px;
+    right:0;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color: #151515;
+    background-repeat: repeat-x;
+    box-shadow: 0px 1px 24px 2px #151515;
+    padding:10px 20px 0 20px;
+    margin:0;
+    color:#cecece;
+    font-size:12px;
+}
+
+/*Nav layouts*/
+
+#banner
+{
+    
+}
+
+#banner #logo {
+	background-color:#fff;
+	height:170px;
+}
+#navigation
+{
+    background-image:url('../images/header.png');
+    margin-bottom:0;
+    vertical-align: bottom;
+    height:40px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:20px;
+    padding-right:20px;
+    vertical-align:middle;
+    border-radius:0 0 5px 5px;
+    overflow:hidden;
+    border-bottom:1px solid #555;
+}
+
+#navigation li
+{
+    height:1em;
+    display:inline;
+    text-align: center;
+   /*border-bottom: 1px solid #800000;*/
+    margin:0;
+    position:relative;
+    border-radius:5px 5px 0 0;
+    padding: 7px;
+    -webkit-transition: background 0.3s ease-in;
+}
+
+#navigation li a  
+{
+	display:inline-block;
+    text-decoration:none;
+font-size:20px;
+    color:White;
+    padding:15px;
+}
+
+li.nav:hover
+{
+        background-color: #151515;
+    background-position:left;
+    /*border-bottom: 3px solid #880000;*/
+    
+}
+
+
+/*misc*/
+
+.right
+{
+	float:right;
+}
+
+.left
+{
+	float:left;
+}
+
+.clear
+{
+    clear: both;
+    height: 0px;
+}
