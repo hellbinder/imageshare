@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
     :medium => "300x300>", 
     :thumb => "100x100>" }
 
-  attr_accessible :description, :name, :image_file
+  attr_accessible :description, :name, :image_file, :album_id
 	belongs_to :album
 
 

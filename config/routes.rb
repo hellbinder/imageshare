@@ -1,7 +1,8 @@
 Imageshare::Application.routes.draw do
-  resources :albums
-
-  resources :images
+  resources :albums do
+  	resources :images
+	end
+	resources :images
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
