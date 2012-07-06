@@ -9,7 +9,7 @@
     z-index:0;
         li { overflow:hidden;
             border: 2px solid #999;
-            margin: 0 15px 15px 25px;
+            margin: 0 15px 25px 0;
             width:300px;
             height:340px; 
             background:url('worn_texture.jpg') repeat;

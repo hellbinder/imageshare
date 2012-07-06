@@ -1,5 +1,4 @@
 <h1>New image for album <%= @album.title %></h1>
-<h2>album isis <%= @image.album_id %> <h2>
 <%= render 'form' %>
 
-<%= link_to 'Back', images_path %>
+<%= link_to 'Back', album_path %>

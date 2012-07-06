@@ -21,10 +21,7 @@
 <body>
     <header id="banner">
         <ul id="navigation" class="">
-            <li class="nav"><a href="/images">Images</a></li>
-            <li class="nav"><a href="http://www.google.com">Google</a></li>
-            <li class="nav"><a href="http://www.engadget.com">Engadget</a></li>
-            <li class="nav"><a href="http://www.Gizmodo.com">Gizmodo</a></li>
+            <li class="nav"><%= link_to 'Albums', albums_path %></li>
         </ul>
     <div class="clear"></div>
     </header>
