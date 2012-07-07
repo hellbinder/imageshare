@@ -2,7 +2,7 @@ Imageshare::Application.routes.draw do
   resources :albums do
   	resources :images, :only => [:index, :new, :create]
 	end
-	resources :images, only => [:show, :edit, :delete]
+	resources :images, :only => [:show, :edit, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

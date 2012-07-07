@@ -28,7 +28,7 @@
                     width:300px;
                     height:300px; 
                     border:1px solid #333;
-                    z-index:0;
+                    z-index:0;	
                 }
             }
 }
@@ -45,6 +45,7 @@ img.move
     z-index:1;
     cursor:move;
 }
+.thumbnail li,.thumbnail li img {-webkit-backface-visibility:hidden;} //Smooth out rotated elements jagged edges.
 
 .thumbnailContainer li:nth-child(odd){
 -webkit-transform: rotate(-2deg);

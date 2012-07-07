@@ -6,34 +6,33 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("#test").click(function () {
-                $(this).animate(
-            { "font-size": "60px",
-                "padding-left": "200px"
-            }, 2000).animate(
-            { "color": "Blue" },
-            2000);
-            });
-        });
+			;(function($) {
+					"use strict";
+					$(document).ready(function() {
+						  $('#access').on('touchstart click', '.skip-link', function(event) {
+						      $(this).toggleClass('focus');
+						      $($(this).attr('href')).toggleClass('target');
+						      event.preventDefault();
+						  }).find('.skip-link').append('<span>'+$('#menu .active').text()+'</span>');
+					});
+			})(jQuery);
     </script>
 </head>
 <body>
-    <header id="banner">
-        <ul id="navigation" class="">
-            <li class="nav"><%= link_to 'Albums', albums_path %></li>
-        </ul>
-    <div class="clear"></div>
+    <header id="wrapper">
+		<nav role="navigation" id="access">
+		  <ul id="menu">
+		    <li><%= link_to 'Albums', albums_path, :class=>'icon-picture' %></li>
+				<li><%= link_to 'About', '', :class => 'icon-leaf'%></li>
+		  </ul>
+		</nav>
     </header>
-<div id="pageBase">
-	<div id="page">
+	<div id="pageBase">
+		<div id="page">
 		<%= yield %>
-        </div>
-        <aside>
-        Just links to different parts of the page.
-        </aside>
     </div>
-    <div class="clear">
+  </div>
+  	<div class="clear">
     </div>
     <footer id="footer">
     This is a footer which should contain links to common links pertaining to the page. Not very important links. Just some like help, emailme, basic info and what not.<br />

@@ -1,13 +1,4 @@
-body {
-	margin: 0;
-	padding: 0;
-	font-family:  Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	color: #F1F5F8;
-	background: #000000 url(background.png) repeat-x;
-}
-
-p, ol, ul, td {
+p, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; 
@@ -21,10 +12,10 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666; }
+    color: #151515; }
   &:hover {
     color: #fff;
-    background-color: #000; }}
+    background-color: #666; }}
 
 a.albumImage{
   &:visited {
@@ -63,3 +54,5 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+
+
