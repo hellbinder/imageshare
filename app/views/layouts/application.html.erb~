@@ -22,10 +22,12 @@
     <header id="wrapper">
 		<nav role="navigation" id="access">
 		  <ul id="menu">
-				<% if logged_in %>
+				<% if current_user %>
 		    	<li><%= link_to 'Albums', albums_path, :class=>'icon-picture' %></li>
 					<li><%= link_to 'About', '', :class => 'icon-leaf'%></li>
-					<li><%= link_to 'Log Out', 'log_out', :class => 'icon-user'%></li>
+					<li>
+						<%= link_to current_user.username, 'log_out', :class => 'icon-user'%><span style="font-size:8px">logout</span>
+					</li>
 				<% else %>
 					<li><%= link_to 'Log In', 'log_in', :class => 'icon-user'%></li>
 				<% end %>
