@@ -1,6 +1,6 @@
 <h1>Listing albums</h1>
 <br/>
-<table id="album_table" class="datatable">
+<table id="albums" class="datatable">
 	<thead>
 		<tr>
 		  <th>Title</th>

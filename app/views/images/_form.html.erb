@@ -1,8 +1,6 @@
-<%= form_for([@album,@image], :html => { :multipart => true }) do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
-
       <ul>
       <% @image.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,22 +8,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :file %><br />
-    <%= f.file_field :image_file %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<h1 class="form">New image for album <%= @album.title %></h1>
+<%= form_for([@album,@image], :html => { :multipart => true }) do |f| %>
+  <ul>
+    <li>
+				<%= f.label :name %>
+    		<%= f.text_field :name, {:maxlength=>"15", :class=>"title"} %></li>
+    <li>
+				<%= f.label :description %>
+    		<%= f.text_area :description %></li>
+    <li>
+				<%= f.label :file %>
+				<%= f.file_field :image_file %>
+		</li>
+    <li><%= f.submit %></li>
+  </ul>
 <% end %>
