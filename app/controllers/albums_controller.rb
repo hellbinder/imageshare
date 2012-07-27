@@ -2,8 +2,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
-
+    @albums = current_user.albums
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }

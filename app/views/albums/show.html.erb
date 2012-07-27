@@ -1,13 +1,37 @@
+<script type="text/javascript">
+//Create light box options
+
+    var fancyBoxOptions = {
+        nextClick: true,
+        loop: true,
+        openEffect: 'elastic',
+        closeEffect: 'elastic'
+    };
+
+    //HOVER SO IT SHOWS MENU TO DELETE OR SHOW ORIGINAL IMAGE
+    //Bind images to lightbox so when click will show popup
+    function BindFancyBox() {
+        $(".thumbnail a.albumImage").fancybox(fancyBoxOptions);
+    }
+
+    $(document).ready(function(){
+    	BindFancyBox() 
+    });
+</script>
 <p id="notice"><%= notice %></p>
 <h1><%= @album.title %></h1>
 <p>
-  <b><%= @album.description %></b>
+<b><%= @album.description %></b>
+<br/><br/>
+<%= link_to 'Add Image', new_album_image_path(@album), :class => "green button"%> |
+<%= link_to 'Edit', edit_album_path(@album), :class => "blue button" %> |
+<%= link_to 'Back', albums_path, :class => "gray button" %>
 </p>
 <br/>
 <ul class="thumbnailContainer">
 	<% @images.each do |image| %>
 		  <li class="thumbnail">
-			<%= link_to image.image_file.url, :title => image.name, :class => "albumImage" do
+			<%= link_to image.image_file.url, :title => image.name, :class => "albumImage", :rel => "albumImages" do
 				image_tag image.image_file.url(:medium)
 			end %>
 			<p><%= image.name %><%= link_to 'X', image, method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' }, :class=>"right" %></p>
@@ -17,6 +41,3 @@
 <%= content_tag(:div, "", :class => "clear") %>
 
 </br>
-<%= link_to 'Add Image', new_album_image_path(@album), :class=>'button green' %>
-<%= link_to 'Edit', edit_album_path(@album), :class=>'button blue' %> |
-<%= link_to 'Back', albums_path, :class=>'button gray' %>

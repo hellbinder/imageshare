@@ -8,19 +8,20 @@
       </ul>
     </div>
   <% end %>
-<h1 class="form">New image for album <%= @album.title %></h1>
-<%= form_for([@album,@image], :html => { :multipart => true }) do |f| %>
-  <ul>
+<h1 class="dataForm">New image for album <%= @album.title %></h1>
+<%= form_for([@album,@image], :html => {:class=>"dataForm", :multipart => true }) do |f| %>
+  <ul>	
     <li>
-				<%= f.label :name %>
-    		<%= f.text_field :name, {:maxlength=>"15", :class=>"title"} %></li>
+	<%= f.label :name %>
+    	<%= f.text_field :name, {:maxlength=>"15", :class=>"title"} %></li>
     <li>
-				<%= f.label :description %>
-    		<%= f.text_area :description %></li>
+	<%= f.label :description %>
+    	<%= f.text_area :description %>
+    </li>
     <li>
-				<%= f.label :file %>
-				<%= f.file_field :image_file %>
-		</li>
+	<%= f.label :file %>
+	<%= f.file_field :image_file %>
+    </li>
     <li><%= f.submit %></li>
   </ul>
 <% end %>

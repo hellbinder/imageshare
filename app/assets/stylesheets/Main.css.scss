@@ -223,18 +223,17 @@ background-color: #333;
 			&.large { font-size: 125%; padding: 7px 12px; }
 			&.large:active { padding: 8px 12px 6px; background-position: 0 top; }
 }
-	
-/*forms*/
+	/*forms*/
 
-	h1.form, form
+	h1.dataForm, form
 	{
 			margin: {
 				left:auto;
 				right:auto;
 				}
-			
+		
 	}
-	h1.form{
+	h1.dataForm{
 			padding:0;
 			height:30px;
 			background-color:#204A87; 
@@ -248,13 +247,14 @@ background-color: #333;
 			text-align:center;
 			vertical-align: text-bottom;
 			}
-	form 
+
+form.dataForm
 	{
 		width:700px;
 		padding:0;
 		border-radius:0px 0px 8px 8px;
 		border:8px solid #204A87;
-		background:url("redTexture.png") repeat;
+		background: #ddd;
 	ul{
 			margin:0;
 			padding:40px;		
@@ -293,6 +293,7 @@ background-color: #333;
 		font-size:1em;
 		font-family: helvetica;
 		color:#333;
+		max-height:200px;
 		width:240px;
 			&:focus {
 			 	border-color:#518098 
@@ -315,5 +316,6 @@ background-color: #333;
 		color:#fff;
 		cursor:pointer;
 	}
+	
 }
 

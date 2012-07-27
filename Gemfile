@@ -24,6 +24,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "rails-footnotes", ">= 3.7", :group => :development
+gem "rsolr-footnotes", :group => :development
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => 'bcrypt'

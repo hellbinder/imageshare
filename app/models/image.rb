@@ -7,5 +7,5 @@ class Image < ActiveRecord::Base
   attr_accessible :description, :name, :image_file, :album_id
 	belongs_to :album
 	validates :name, :description, :image_file, :presence => true
-
+  
 end
