@@ -1,0 +1,52 @@
+.leftCol
+ %h1 My albums
+ .albumContent
+  %ul#albumList
+  -current_user.owned_albums.each do |album|
+   %a{:href => url_for(album)}
+    %li= album.title + " (#{album.images.count})"
+
+ %h1 Shared Albums
+ .albumContent
+  - if current_user.albums.count != 0
+   -current_user.albums.each do |album|
+    %ul#albumList 
+     %a{:href => url_for(album)}
+      %li= album.title + " (#{album.images.count})"
+  -else
+   No Albumns
+.rightCol
+ #imageContent
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+  This is right now a test. <br/>
+.clear

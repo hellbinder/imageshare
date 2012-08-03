@@ -1,8 +1,13 @@
 class AlbumsController < ApplicationController
+  before_filter :authorized?, :except => :index
+
+  def authorized?
+    @album.in?(current_user.owned_albums) || @album.in?(current_user.albums)
+  end
+
   # GET /albums
   # GET /albums.json
   def index
-    @albums = current_user.albums
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }
@@ -14,10 +19,14 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
 		@images = @album.images
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @album }
-    end
+      if authorized?
+        respond_to do |format|
+          format.html # show.html.erb
+          format.json { render json: @album }
+        end
+      else
+        render :status => 422, :file => File.join(Rails.root, 'public', '422.html')
+      end
   end
 
   # GET /albums/new
@@ -40,7 +49,7 @@ class AlbumsController < ApplicationController
   # POST /albums.json
   def create
     @album = Album.new(params[:album])
-
+    @album.user_id = current_user.id
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: 'Album was successfully created.' }

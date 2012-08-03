@@ -10,3 +10,39 @@
 	}
 }
 
+.leftCol{
+	float:left;
+	width: 25%;
+
+}
+div.albumContent{
+	background-color:#eee;
+    background-clip: padding-box;
+    border: 8px solid transparent;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    margin-bottom:20px;
+	li{
+		border-radius: 5px;
+		padding: 10px;
+		border-top: 2px solid #fff;
+		border-bottom: 1px dotted #999;
+		list-style: none;
+		font-size:20px;
+		text-shadow: 2px 2px 2px #fff;
+		&:hover{
+			text-shadow: 0 0 0;
+			color:#ccc;
+			background-color:#204A87;
+		}
+	}
+}
+.rightCol{
+	padding:10px;
+	float: right;
+	width:70%;
+	color: #666;
+	border-left:2px dotted #333;
+}
+
+

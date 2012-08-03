@@ -19,6 +19,7 @@
     </script>
 </head>
 <body>
+<% if current_user %>
     <header id="wrapper">
 		<nav role="navigation" id="access">
 		  <ul id="menu">
@@ -36,17 +37,22 @@
     </header>
 	<div id="pageBase">
 		<div id="page">
-		<%= flash.each do |name, msg| %>
+		<% flash.each do |name, msg| %>
 			<%= content_tag :div, msg, {:id => "flash_#{name}", :class => "field_with_errors"} %>
 		<% end %>
 		<%= yield %>
     </div>
   </div>
+	<%else%>
+	  	<%= yield %>
+	<%end%>
   	<div class="clear">
     </div>
+<% if current_user %>
     <footer id="footer">
     This is a footer which should contain links to common links pertaining to the page. Not very important links. Just some like help, emailme, basic info and what not.<br />
     Might not need to be fixed so it just shows up at the end of the page.
     </footer>
+ <%end%>
 </body>
 </html>
