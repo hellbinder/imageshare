@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :authorized?, :except => :index
+  before_filter :authenticate_user!
 
   def authorized?
     @album.in?(current_user.owned_albums) || @album.in?(current_user.albums)
@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums
   # GET /albums.json
-  def index
+  def index 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
           format.json { render json: @album }
         end
       else
-        render :status => 422, :file => File.join(Rails.root, 'public', '422.html')
+        redirect_to(:unauthorized)
       end
   end
 

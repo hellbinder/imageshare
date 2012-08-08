@@ -1,0 +1,22 @@
+%span.title Title of whatever will go here. (in the middle)
+.login-form
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    %h1 User Log In
+    .inset
+      %p
+        = f.label :login
+        = f.text_field :login
+      %p
+        = f.label :password
+        = f.password_field :password
+      %p
+      - if devise_mapping.rememberable?
+        %div
+          = f.check_box :remember_me, :id => "remember"
+          %label{:for => "remember"} Remember me
+          %div= f.submit "Sign in"
+          %br/
+          = render "devise/shared/links"
+          %br/
+          - flash.each do |name, msg|
+            = content_tag :div, msg, {:id => "flash_#{name}", :class => "field_with_errors"}

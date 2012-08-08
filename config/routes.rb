@@ -1,16 +1,16 @@
 Imageshare::Application.routes.draw do
-  get "log_in" => "sessions#new", :as => "log_in"
-	get "log_out" => "sessions#destroy", :as => "log_out"
-	root :to => 'sessions#new'
+  devise_for :users
 
   get "sign_up" => "users#new", :as => "sign_up"
+  get "sign_out" => "users#destroy", :as => "sign_out"
 
   resources :albums do
   	resources :images, :only => [:index, :new, :create]
 	end
 	resources :images, :only => [:show, :edit, :destroy]
-	resources :users
-	resources :sessions
+	#resources :users
+  root :to => 'albums#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
