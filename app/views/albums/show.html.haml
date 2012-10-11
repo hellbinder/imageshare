@@ -11,30 +11,40 @@
       //HOVER SO IT SHOWS MENU TO DELETE OR SHOW ORIGINAL IMAGE
       //Bind images to lightbox so when click will show popup
       function BindFancyBox() {
-          $(".thumbnail a.albumImage").fancybox(fancyBoxOptions);
+          $("ul.thumbnailContainer li a.albumImage").fancybox(fancyBoxOptions);
       }
   
       $(document).ready(function(){
         BindFancyBox() 
+
+        $(".view img").on('click',function(){
+         var imgId = $(this).attr("id");
+         var liClass = imgId == "photoView" ? "lg": "sm";
+         $("ul.thumbnailContainer li").attr("class",liClass);
+        })
       });
 
-%p#notice= notice
-%h1= @album.title
+.option
+  .menu
+    = link_to content_tag(:span, 'New image',:class => "add"), new_album_image_path(@album), :class=>"buttonImg"
+    |
+    = link_to content_tag(:span, 'Edit album',:class => "edit"), edit_album_path(@album), :class=>"buttonImg" |
+    |
+    = link_to content_tag(:span, 'Delete album',:class => "delete"), @album, method: :delete, data: { confirm: 'Are you sure you wish to delete this album?' }, :class=>"buttonImg"
+    |
+    #{link_to content_tag(:span, 'Back', :class => "back"), albums_path, :class => "buttonImg"}
+  .view
+    = content_tag(:span, "View:")
+    = image_tag('thumbnail_16.png', :id => "thumbnailView")
+    = image_tag('thumbnail_4.png', :id => "photoView")
+  .clear
+%span.title= @album.title
 %p
   %b= @album.description
-  %br
-  %br
-  = link_to 'Add Image', new_album_image_path(@album), :class => "green button"
-  |
-  #{link_to 'Edit', edit_album_path(@album), :class => "blue button"} |
-  |
-  #{link_to 'Back', albums_path, :class => "gray button"}
-  |
-  #{link_to 'X', @album, method: :delete, data: { confirm: 'Are you sure you wish to delete this album?' }, :class=>"red button"}
 %br
 %ul.thumbnailContainer
   - @images.each do |image|
-    %li.thumbnail
+    %li.sm
       = link_to image.image_file.url, :title => image.name, :class => "albumImage", :rel => "albumImages" do |
         image_tag image.image_file.url(:medium) |
         end |

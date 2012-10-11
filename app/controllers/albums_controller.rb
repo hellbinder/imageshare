@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
           format.json { render json: @album }
         end
       else
-        redirect_to(:unauthorized)
+        redirect_to(albums_path,:notice => "You do not have access to the album")
       end
   end
 

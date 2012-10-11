@@ -227,39 +227,29 @@ background-color: #333;
 	/*forms*/
 
 	h1.dataForm, form.dataForm
-	{
-			margin: {
-				left:auto;
-				right:auto;
-				}
-		
+	{		
 	}
 	h1.dataForm{
-			padding:0;
-			height:30px;
-			background-color:#204A87; 
-			width:700px;
-			border-radius:8px 8px 0px 0px;
-			border:8px solid #204A87;
-			border-bottom-width:0px;
-			font-family:helvetica;
-			color:#eee;
-			text-shadow: 0px 2px 4px #111;
-			text-align:center;
-			vertical-align: text-bottom;
+		  	background:-webkit-linear-gradient(left, #ddd, #204A87);
+			font-size: 2em;
+			line-height: 1em;
+			margin: 0.7em 0 .2em;
+			font-weight: bold;
+			width:100%;
+			color:#333;
+			border-radius:3px;
+			border:1px solid #204A87;
+			font-family:Arial, Helvetica, sans-serif;
+			text-shadow: 0px 2px 4px #fff;
 			}
 
 form.dataForm
 	{
 		width:700px;
 		padding:0;
-		border-radius:0px 0px 8px 8px;
-		border:8px solid #204A87;
-		background: #ddd;
 	ul{
 			margin:0;
-			padding:40px;		
-			box-shadow: inset 1px 1px 17px 5px #777;
+			padding:20px;		
 		li{
 				overflow:auto;
 				margin:0;
@@ -270,52 +260,58 @@ form.dataForm
 	input, textarea, label{ float:left; }
 	label{
 				width:160px;
-				padding:10px;
+				padding:5px;
 				margin:10px;
-				color:#111;
+				color:#25313C;
 				text-shadow: 0px -1px 2px #eee;
+				font-family: Arial, Helvetica, sans-serif;
 				text-transform:uppercase;
 				text-align:right;
 				font-weight:bold;
 				line-height:1.8em;
+
 	}
 	input:not([type = "submit"]),textarea {
 		padding:10px;
 		margin:10px;
-		border-top:1px solid #aaa;
-		border-bottom:1px solid #eee;
-		border-left:1px solid #ccc;
-		border-right:1px solid #ccc;
-		border:5px solid #fff;
+		border{
+			top:1px solid #aaa;
+			left:1px solid #ccc;
+			bottom:1px solid #eee;
+			right:1px solid #ccc;
+		}
 		border-radius:5px;
 		box-shadow: inset 1px 1px 2px 1px #999;
 		background:#efefef;
 		outline:none;
 		font-size:1em;
-		font-family: helvetica;
-		color:#333;
-		max-height:200px;
-		width:240px;
+		font-family: Arial, Helvetica, sans-serif;
+		color:#25313C;
+		max-height:100px;
+		width:340px;
 			&:focus {
-			 	border-color:#518098 
+			 	border-color:#ddd;
 			}
 		}
 	input.title{font-size:20px;}
 	input::-webkit-input-placeholder {color:#ccc;font-style:italic;}
 	input:-moz-placeholder{color:#ccc;font-style:italic}
-	button, input[type = "submit"] {
-		width:150px;
-		border:5px solid #fff;
+	button,a,input[type = "submit"] {
+		width:auto;
+		border:1px solid #fff;
 		padding:10px;
-		float:right;
 		border-radius:5px;
+		float:right;
 		background:#518098;
-		font-family:helvetica;
-		font-size:1em;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:12px;
 		text-transform:uppercase;
 		font-weight:bold;
 		color:#fff;
 		cursor:pointer;
+		&:hover{
+		background-color:#333;			
+		}
 	}
 	
 }

@@ -1,52 +1,48 @@
 .leftCol
  %h1 My albums
  .albumContent
-  %ul#albumList
-  -current_user.owned_albums.each do |album|
-   %a{:href => url_for(album)}
-    %li= album.title + " (#{album.images.count})"
+  %ul
+   -if current_user.owned_albums.count != 0
+    -current_user.owned_albums.each do |album|
+     %a{:href => url_for(album), :class => "albumlink"}
+      %li= album.title + " (#{album.images.count})"
+   -else
+    .empty{:Style => "font-size:14px;"} 
+     No albums exist. Click 
+     %a{:href => url_for(new_album_path)} here
+     to add an album.
 
  %h1 Shared Albums
  .albumContent
+  %ul
   - if current_user.albums.count != 0
    -current_user.albums.each do |album|
-    %ul#albumList 
-     %a{:href => url_for(album)}
-      %li= album.title + " (#{album.images.count})"
+    %a{:href => url_for(album), :class => "albumlink"}
+     %li= album.title + " (#{album.images.count})"
   -else
-   No Albumns
+   .empty{:Style => "font-size:14px;"} No albumns being shared to you
 .rightCol
  #imageContent
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
-  This is right now a test. <br/>
+  -(1..50).each do
+   This is right now a test. <br/>
 .clear
+
+:javascript
+  //Create light box options
+  
+      var fancyBoxOptions = {
+          nextClick: true,
+          loop: true,
+          openEffect: 'elastic',
+          closeEffect: 'elastic'
+      };
+  
+      //HOVER SO IT SHOWS MENU TO DELETE OR SHOW ORIGINAL IMAGE
+      //Bind images to lightbox so when click will show popup
+      function BindFancyBox() {
+          $(".thumbnail a.albumImage").fancybox(fancyBoxOptions);
+      }
+  
+      $(document).ready(function(){
+        BindFancyBox() 
+      });

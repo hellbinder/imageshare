@@ -1,13 +1,21 @@
 // Place all the styles related to the images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(http://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+span.title{
+    font-family: 'Covered By Your Grace', cursive;
+    color:#333;
+    font-size:4em;
+
+}
+
 .thumbnailContainer
 {
     list-style:none;
     position:relative;
     overflow:visible;
     z-index:0;
-        li { overflow:hidden;
+        li.lg { overflow:hidden;
             border: 2px solid #999;
             margin: 0 15px 15px 25px;
             width:300px;
@@ -15,7 +23,42 @@
             background:url('worn_texture.jpg') repeat;
             padding: 10px 10px 15px 10px;
             box-shadow: 0 10px 15px #111;
-            float:left;    
+            float:left;   
+            &:nth-child(odd){
+                -webkit-transform: rotate(-2deg);
+                -moz-transform: rotate(-2deg);
+            } 
+            /*Rotate all even images by 2 degrees*/
+            &:nth-child(even) {
+                -webkit-transform: rotate(2deg);
+                -moz-transform: rotate(2deg);
+            }
+            /* Don't rotate every third image, but offset its position */
+            &:nth-child(3n) {
+                -webkit-transform: none;
+                -moz-transform: none;
+                position: relative;
+                top: -5px;
+            }
+            /* Rotate every fifth image by 5 degrees and offset it */
+            &:nth-child(5n) {
+                -webkit-transform: rotate(5deg);
+                -moz-transform: rotate(5deg);
+                position: relative;
+                right: 5px;
+            }
+            /* Keep default rotate for every eighth, but offset it */
+            &:nth-child(8n) {
+                position: relative;
+                top: 8px;
+                right: 5px;
+            }
+            /* Keep default rotate for every eleventh, but offset it */
+            &:nth-child(11n) {
+                position: relative;
+                top: 3px;
+                left: -5px;
+            }
             p {
                 text-align:center;
                 font-size:18px;
@@ -23,16 +66,32 @@
                 height:auto;
                 margin:15px auto;
                 }
-                img  
-                {
-                    width:300px;
-                    height:300px; 
-                    border:1px solid #333;
-                    z-index:0;	
-                }
+            img  
+            {
+                width:300px;
+                height:300px; 
+                border:1px solid #333;
+                z-index:0;	
             }
+            }
+        li.sm { overflow:hidden;
+            border: 2px solid #999;
+            margin: 0 7px 7px 7px;
+            width:210px;
+            height:230px; 
+            background:url('worn_texture.jpg') repeat;
+            padding: 5px 5px 8px 5px;
+            box-shadow: 0 10px 15px #111;
+            float:left;
+            img  
+            {
+                width:210px;
+                height:210px; 
+                border:1px solid #333;
+                z-index:0;  
+            }
+        }
 }
-
 
 img.move
 {
@@ -47,45 +106,48 @@ img.move
 }
 .thumbnail li,.thumbnail li img {-webkit-backface-visibility:hidden;} //Smooth out rotated elements jagged edges.
 
-.thumbnailContainer li:nth-child(odd){
--webkit-transform: rotate(-2deg);
--moz-transform: rotate(-2deg);
-}
- 
-/* Rotate all even images 2 degrees */
-.thumbnailContainer li:nth-child(even) {
--webkit-transform: rotate(2deg);
--moz-transform: rotate(2deg);
-}
- 
-/* Don't rotate every third image, but offset its position */
-.thumbnailContainer li:nth-child(3n) {
--webkit-transform: none;
--moz-transform: none;
-position: relative;
-top: -5px;
-}
- 
-/* Rotate every fifth image by 5 degrees and offset it */
-.thumbnailContainer li:nth-child(5n) {
--webkit-transform: rotate(5deg);
--moz-transform: rotate(5deg);
-position: relative;
-right: 5px;
-}
- 
-/* Keep default rotate for every eighth, but offset it */
-ul.thumbnailContainer li:nth-child(8n) {
-position: relative;
-top: 8px;
-right: 5px;
-}
- 
-/* Keep default rotate for every eleventh, but offset it */
-ul.thumbnailContainer li:nth-child(11n) {
-position: relative;
-top: 3px;
-left: -5px;
+.option
+{
+    width:100%;
+    background-color: #eee;
+    border:1px solid #ccc;
+    padding:10px 10px 3px 10px;
+    display:block;
+    text-align:left;
+    margin-bottom:20px;
+    .menu {
+        display:inline;
+    }
+    .view {
+        padding:5px;
+        margin:0;
+        float:right;
+        img{margin-left: 3px; cursor:pointer;}
+    }
 }
 
+/*Button classes test */
+
+a.buttonImg {
+    font-weight:bold;
+    display:inline;
+    text-decoration:none;
+    line-height:20px;
+    padding:5px;
+    &:hover{
+    background-color:#ccc;
+    }
+    &:hover span{color:#fff;
+    }
+    span {        
+        text-indent:35px;
+        color:#555555;
+        display:inline-block;
+        font-family:Arial;
+        &.add {background:url(image_add.png) no-repeat 8px;}
+        &.edit {background:url(image_edit.png) no-repeat 8px;}
+        &.delete {background:url(image_delete.png) no-repeat 8px;}
+        &.back {background:url(backward.png) no-repeat 8px;}
+    }
+}
 

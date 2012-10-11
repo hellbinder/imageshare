@@ -1,0 +1,26 @@
+%p#notice= notice
+%h1= @album.title
+%p
+  %b= @album.description
+  %br
+  %br
+  = link_to 'Add Image', new_album_image_path(@album), :class => "green button"
+  |
+  #{link_to 'Edit', edit_album_path(@album), :class => "blue button"} |
+  |
+  #{link_to 'Back', albums_path, :class => "gray button"}
+  |
+  #{link_to 'X', @album, method: :delete, data: { confirm: 'Are you sure you wish to delete this album?' }, :class=>"red button"}
+%br
+%ul.thumbnailContainer
+  - @images.each do |image|
+    %li.lg
+      = link_to image.image_file.url, :title => image.name, :class => "albumImage", :rel => "albumImages" do |
+        image_tag image.image_file.url(:medium) |
+        end |
+      %p
+        = image.name
+        = link_to 'X', image, method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' }, :class=>"right"
+        = content_tag(:div, "", :class => "clear")
+
+%br

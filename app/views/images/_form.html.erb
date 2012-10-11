@@ -22,6 +22,9 @@
 	<%= f.label :file %>
 	<%= f.file_field :image_file %>
     </li>
-    <li><%= f.submit %></li>
+    <li>
+      <%= f.submit %>
+      <%= link_to 'Back', @image.album %>
+    </li>
   </ul>
 <% end %>
