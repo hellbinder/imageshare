@@ -42,15 +42,29 @@
 %p
   %b= @album.description
 %br
-%ul.thumbnailContainer
-  - @images.each do |image|
-    %li.sm
-      = link_to image.image_file.url, :title => image.name, :class => "albumImage", :rel => "albumImages" do |
-        image_tag image.image_file.url(:medium) |
-        end |
-      %p
-        = image.name
-        = link_to 'X', image, method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' }, :class=>"right"
-        = content_tag(:div, "", :class => "clear")
-
+.images_wrapper
+  %ul.thumbnailContainer
+    - @images.each do |image|
+      %li.sm
+        = link_to image.image_file.url, :title => image.name, :class => "albumImage", :rel => "albumImages" do |
+          image_tag image.image_file.url(:medium) |
+          end |
+        %p
+          = image.name
+          = link_to 'X', image, method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' }, :class=>"right"
+          = content_tag(:div, "", :class => "clear")
+.album_info
+  %h1 Album Info
+  %hr
+  %p= "Created"
+  %p= l @album.created_at, :format => :long
+  %br
+  %p Updated
+  %p=l @album.created_at, :format => :short
+  %br
+  %p Shared with
+  %ul
+  -@album.users.each do |u|
+    %li= u.username
+.clear
 %br
