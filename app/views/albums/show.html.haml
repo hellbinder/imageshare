@@ -27,11 +27,8 @@
 .option
   .menu
     = link_to content_tag(:span, 'New image',:class => "add"), new_album_image_path(@album), :class=>"buttonImg"
-    |
-    = link_to content_tag(:span, 'Edit album',:class => "edit"), edit_album_path(@album), :class=>"buttonImg" |
-    |
+    = link_to content_tag(:span, 'Edit album',:class => "edit"), edit_album_path(@album), :class=>"buttonImg" if @album.user_id == current_user.id
     = link_to content_tag(:span, 'Delete album',:class => "delete"), @album, method: :delete, data: { confirm: 'Are you sure you wish to delete this album?' }, :class=>"buttonImg"
-    |
     #{link_to content_tag(:span, 'Back', :class => "back"), albums_path, :class => "buttonImg"}
   .view
     = content_tag(:span, "View:")
@@ -51,20 +48,24 @@
           end |
         %p
           = image.name
-          = link_to 'X', image, method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' }, :class=>"right"
+          = link_to 'X', image, method: :delete, data: { confirm: 'Are you sure you wish to delete this image?' }, :class=>"right" if @album.owner.id == current_user.id
           = content_tag(:div, "", :class => "clear")
 .album_info
   %h1 Album Info
   %hr
-  %p= "Created"
+  %p.info= "Created"
   %p= l @album.created_at, :format => :long
   %br
-  %p Updated
-  %p=l @album.created_at, :format => :short
+  %p.info= "By"
+  %p= @album.owner.username
   %br
-  %p Shared with
+  %p.info Updated
+  %p=l @album.updated_at, :format => :long
+  %br
+  %p.info Shared with
   %ul
   -@album.users.each do |u|
     %li= u.username
+  %br
 .clear
 %br

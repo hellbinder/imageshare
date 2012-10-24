@@ -1,0 +1,25 @@
+- if @album.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@album.errors.count, "error")
+      prohibited this album from being saved:
+    %ul
+      - @album.errors.full_messages.each do |msg|
+        %li= msg
+%h1.dataForm Album Info
+= form_for(@album, :html => {:class => "dataForm"}) do |f|
+  %ul
+    %li
+      = f.label :title, "Album Title"
+      = f.text_field :title, { :class=>"title"}
+    %li
+      = f.label :description
+      = f.text_area :description
+    %ul
+      -for user in User.where(['id <> ?', @album.user_id])
+        %li
+          = check_box_tag "user[user_ids][]", user.id, @album.users.include?(user)
+          = user.username
+  = f.submit
+  = link_to 'Back To Images', @album
+  = link_to 'Back To Albums', albums_path

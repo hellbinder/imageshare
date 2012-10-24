@@ -1,8 +1,12 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!
-
+  before_filter :authenticate_user!, :only => [:show]
+  #authorize is user is owner or if its being shared to them
   def authorized?
     @album.in?(current_user.owned_albums) || @album.in?(current_user.albums)
+  end
+
+  def can_edit?
+    @album.user_id == current_user.id
   end
 
   # GET /albums
@@ -42,7 +46,10 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
-    @album = Album.find(params[:id])
+      @album = Album.find(params[:id])
+    if !can_edit?
+      redirect_to(albums_path,:notice => "You cannot edit the album")
+    end
   end
 
   # POST /albums
@@ -65,7 +72,7 @@ class AlbumsController < ApplicationController
   # PUT /albums/1.json
   def update
     @album = Album.find(params[:id])
-
+    user_albums = 
     respond_to do |format|
       if @album.update_attributes(params[:album])
         format.html { redirect_to @album, notice: 'Album was successfully updated.' }

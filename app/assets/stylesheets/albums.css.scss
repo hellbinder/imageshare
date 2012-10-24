@@ -60,11 +60,17 @@ div.albumContent{
 
 .album_info
 {
-	border-radius:5px;
+	border-radius:1px;
 	padding:5px 10px 5px 10px;
 	background-color:#eee;
-	border:1px solid #333;
+	border:1px solid #999;
 	width:18%;
 	float:right;
 	color: #204A87;
+	box-shadow:inset 0 0 2em #ccc;
+}
+
+p.info
+{
+	font-weight:bold;
 }
